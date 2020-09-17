@@ -8,7 +8,7 @@ cache: npm
 script: npm run build
 
 before_deploy:
-- zip -r yureka-webservce
+- zip -r yureka-webservce *
 - mkdir -p deploy
 - mv yureka-webservice.zip deploy/yureka-webservice.zip
 
