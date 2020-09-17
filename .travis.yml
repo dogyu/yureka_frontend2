@@ -11,13 +11,12 @@ before_deploy:
 - cd dist && zip -r yureka-webservice.zip ./*
 - mkdir -p deploy
 - mv yureka-webservice.zip deploy/yureka-webservice.zip
-- cd ..
 
 deploy:
  - provider: pages
    skip_cleanup: true
    github_token: $GH_TOKEN
-   local_dir: dist
+   local_dir: docs
 
  - provider: s3
    access_key_id: $AWS_ACCESS_KEY
