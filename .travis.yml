@@ -17,7 +17,7 @@ deploy:
  - provider: pages
    skip_cleanup: true
    github_token: $GH_TOKEN
-   local_dir: deploy
+   local_dir: dist
 
  - provider: s3
    access_key_id: $AWS_ACCESS_KEY
