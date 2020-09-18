@@ -23,5 +23,20 @@ deploy:
    local_dir: deploy
    wait-until-deployed: true
 
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: yureka-build-s3
+    key: yureka-webservice.zip
+    bundle_type: zip
+    application: yureka-webservice
+    deployment_group: yureka-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+
+on:
+     branch: master
+
+
 on:
      branch: master
