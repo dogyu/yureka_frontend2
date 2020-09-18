@@ -35,5 +35,3 @@ deploy:
     deployment_group: yureka-webservice-group
     region: ap-northeast-2
     wait-until-deployed: true
-   
-# test1
