@@ -8,10 +8,13 @@ cache: npm
 script: npm run build
 
 before_deploy:
-- rm -rf node_modules
-- zip -r yureka-webservice.zip ./*
-- mkdir -p deploy
-- mv yureka-webservice.zip deploy/yureka-webservice.zip
+- mkdir -p before-deploy
+- cp deploy/*.sh before-deploy/
+- cp appspec.yml before-deploy/
+- cp dist/* before-deploy/
+- cd before-deploy && zip -r before-deploy *
+- cd ../ && mkdir -p deploy
+- mv before-deploy/before-deploy.zip deploy/yureka-webservice.zip
 
 deploy:
  - provider: s3
