@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }} 안녕하세요. 만나서 반갑습니다</h1>
+    <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld 안녕 두두',
+  name: 'HelloWorld',
   props: {
     msg: String
   }
