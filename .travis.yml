@@ -8,7 +8,8 @@ cache: npm
 script: npm run build
 
 before_deploy:
-- cd dist && zip -r yureka-webservice.zip ./*
+- rm -rf node_modules
+- zip -r yureka-webservice.zip ./*
 - mkdir -p deploy
 - mv yureka-webservice.zip deploy/yureka-webservice.zip
 
@@ -19,7 +20,6 @@ deploy:
     bucket: yureka-build-s3
     region: ap-northeast-2
     skip_cleanup: true
-    acl: private
     local_dir: deploy
     wait-until-deployed: true
     on:
@@ -31,10 +31,9 @@ deploy:
     bucket: yureka-build-s3
     key: yureka-webservice.zip
     bundle_type: zip
-    application: yureka-webservice
     deployment_group: yureka-webservice-group
+    application: yureka-webservice
     region: ap-northeast-2
     wait-until-deployed: true
-
-after_deploy:
-- cd ..    
+    on:
+      branch: master
