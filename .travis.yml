@@ -15,10 +15,10 @@ before_deploy:
 
 deploy:
   - provider: pages
-     skip_cleanup: true
-     github_token: $GH_TOKEN
-     local_dir: docs
-     on:
+    skip_cleanup: true
+    github_token: $GH_TOKEN
+    local_dir: docs
+    on:
       branch: master
 
   - provider: s3
