@@ -36,7 +36,3 @@ deploy:
 
 on:
      branch: master
-
-
-on:
-     branch: master
